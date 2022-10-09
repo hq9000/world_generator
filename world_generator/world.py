@@ -1,4 +1,12 @@
+from dataclasses import dataclass
 from typing import Optional, Set
+
+
+@dataclass
+class Point:
+    x: float
+    y: float
+    z: float
 
 
 class World:
@@ -29,12 +37,41 @@ class Field(Object):
 
 
 class Locatable:
-    x: float
-    y: float
+    location: Point
 
-    def __init__(self, x: float, y: float):
-        self.x = x
-        self.y = y
+    def __init__(self, p: Point):
+        self.location = p
+
+
+class Volumetric:
+    p0: Point
+    p1: Point
+    p2: Point
+    p3: Point
+    p4: Point
+    p5: Point
+    p6: Point
+    p7: Point
+
+    def __init__(
+        self,
+        p0: Point,
+        p1: Point,
+        p2: Point,
+        p3: Point,
+        p4: Point,
+        p5: Point,
+        p6: Point,
+        p7: Point,
+    ):
+        self.p0 = p0
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
+        self.p4 = p4
+        self.p5 = p5
+        self.p6 = p6
+        self.p7 = p7
 
 
 class Ageable:
